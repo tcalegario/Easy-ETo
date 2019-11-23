@@ -32,19 +32,29 @@ runGitHub("Easy-ETo", "danielalthoff")
 
 <img src="./misc/app_1.png"
      style="float: left; margin-right: 10px;" />
-
-<p> Download the <a href="https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx" target="blank">template</a><br>
-    Your excel file should look like this:</p>
     
-<h4>2. Insert Latitude and Longitude values</h4>
-<ul>
-  <li>Go to the Assets tab and click on the New menu. Then choose the Folder option.</li>
-  <li>Select your primary account if you have others linked to your structure. In this example, we see the mapbiomas account, but your structure will apper like this: users/MYACCOUNT. Examples: users/mary/, users/joao/, users/john/, users/tyler/.</li>
-  <li>Create a MAPBIOMAS folder (all capital letters) in your assets structure.</li>
-</ul>
-<img src="misc/create-folder.png"
-     alt="Markdown Monster icon"
+<h4>2. Provide the location <b>latitude</b> and <b>altitude</b></h4>
+<p> Latitude should be in decimal (-90 to 90) and altitude in meters (> 0).<br>
+    For this tutorial, we used the sample data available as <a href="https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx" target="blank">template</a>. This dataset was retrieved from the Brazilian National Institute of Meteorology (INMET)'s database (<a href="http://www.inmet.gov.br/portal/index.php?r=estacoes/estacoesConvencionais" target='blank'>BA - BARRA: WMO id. 83179)</a>) and went through minimal pre-processing.<br>
+    The station's corresponding latitude and altitude are -11.08° and 407.5 meters, respectively</p> 
+
+<h4>3. Prepare your Excel (.xlsx) file</h4>
+<p> Download the <a href="https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx" target="blank">template</a> as a referente<br>
+    Your excel file should look like this:</p>
+
+<img src="./misc/app_2.png"
      style="float: left; margin-right: 10px;" />
+     
+<p>Make sure your variables are in the following units:</p>
+<ul>
+  <li>Tmax, Tmean, Tmin = Maximum, mean and minimum daily air temperatura (°C);</li>
+  <li>Relative humidity (%);</li>
+  <li>Wind speed at 10 m above ground (m/s);</li>
+  <li>Solar radiation (MJ/m²/d);</li>
+    <li>Date (dd/mm/yyyy).</li>
+</ul>
+
+
 
 <h4>3. Upload a new table asset</h4>
 
