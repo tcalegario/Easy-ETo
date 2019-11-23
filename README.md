@@ -60,24 +60,29 @@ runGitHub("Easy-ETo", "danielalthoff")
   <li>Relative humidity (%);</li>
   <li>Wind speed at 10 m above ground (m/s);</li>
   <li>Solar radiation (MJ/m²/d);</li>
-    <li>Date (dd/mm/yyyy).</li>
+  <li>Date (dd/mm/yyyy).</li>
 </ul>
 
 
-<h4>4. Upload the Excel file to the <b>Easy-ETo</b> app</h4>
-<p>There are two visualization options:</p>
+<h4>4. Load the Excel file to the <b>Easy-ETo</b> app</h4>
+<p>Wait for your file to upload and choose one of the two visualization options:</p>
 <ul>
     <li><b>Data summary</b>: provides boxplots for each meteorological variable and for the different reference evapotranspiration methods</li>
+    <img src="./misc/app_3.png"
+     style="float: left; margin-right: 10px;" />
     <li><b>Compare ETo methods</b>: provides the reference evapotranspiration methods <em>Time-series</em> and <em>scatterplots</em> with the following metrics:
         - MBE = mean bias error (mm/day) - average error from PT and HS methods minus PM;
         - MAE = mean absolute error (mm/day);
         - RMSE = root mean square error (mm/day);
         - OLS = ordinary least squares regression;
         - FTO = fitted to the origin regression;</li>
+    <img src="./misc/app_4.png"
+     style="float: left; margin-right: 10px;" />
 
-<g4>5. Download the Excel file with ETo data.
-
-< apph4>Enjoy!</h4>
+<h4>5. Download the Excel file with ETo data</h4>
+<p>The download button appears a few seconds after the Excel file upload completes.
+    
+<h4>Enjoy!</h4>
 :smile:
 
 # References
