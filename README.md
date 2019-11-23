@@ -74,18 +74,18 @@ runGitHub("Easy-ETo", "danielalthoff")
      style="float: left; margin-right: 10px;" />
 <ul>
     <li><b>Compare ETo methods</b>: provides the reference evapotranspiration methods <em>Time-series</em> and <em>scatterplots</em> with the following metrics:
-        * MBE = mean bias error (mm/day) - average error from PT and HS methods minus PM;
-        * MAE = mean absolute error (mm/day);
-        * RMSE = root mean square error (mm/day);
-        * OLS = ordinary least squares regression;
-        * FTO = fitted to the origin regression;</li>
+        - MBE = mean bias error (mm/day) - average error from PT and HS methods minus PM;
+        - MAE = mean absolute error (mm/day);
+        - RMSE = root mean square error (mm/day);
+        - OLS = ordinary least squares regression;
+        - FTO = fitted to the origin regression.</li>
 </ul>
 
 <img src="./misc/app_4.png"
      style="float: left; margin-right: 10px;" />
 
 <h4>5. Download the Excel file with ETo data</h4>
-<p>The download button appears a few seconds after the Excel file upload completes.
+<p>The <b>download button</b> appears a few seconds after the Excel file upload completes.
     
 <h4>Enjoy!</h4>
 :smile:
