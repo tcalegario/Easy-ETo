@@ -21,7 +21,8 @@ Easy Reference Evapotranspiration (Easy-ETo) is a ShinyApp used to compute refer
 
 <h4>2. With R</h4>
 <p>Install the required packages and run the <b>Easy-ETo</b> app</p>
-```{r}
+
+```{r setup}
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(shiny, readxl, writexl, dplyr, tidyr,  ggplot2, ggpmisc, lubridate, hydroGOF, update=F)
 
