@@ -43,6 +43,13 @@ ETo_diario_calc <- function(tmed, tmax, tmin, urmed, rad, vmed, lat, alt, date) 
                         HS = 0.0023*((tmax-tmin)^0.5)*(tmed+17.8)*Rg/2.45,
                         PT = as.numeric(unlist(1.26*(delta/(delta+psi))*Rn/2.45)))
 }
+MBE_text = function(df){
+  names(df)<-c('vobs', 'vpred');
+  m = hydroGOF::me.default(sim = df$vpred, obs = df$vobs);
+  m = sprintf('%.2f',m)
+  eq <- substitute(~~MBE~"="~m~"(mm day"^-1*")")
+  as.character(as.expression(eq)); 
+}
 MAE_text = function(df){
   names(df)<-c('vobs', 'vpred');
   m = hydroGOF::mae(sim = df$vpred, obs = df$vobs);
@@ -68,9 +75,14 @@ ui <- fluidPage(
     # Sidebar panel for inputs ----
     wellPanel(
       tags$div(
-        'Please follow the tutorial at:', 
+        'Please check the tutorial at:', 
         tags$br(), 
-        tags$a(href='https://danielalthoff.github.io/', "...under construction...")),
+        tags$a(href='https://github.com/danielalthoff/Easy-ETo', "Easy-ETo")),
+      
+      tags$div(h6('Try our ', 
+                  tags$a(href='https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx', "template"),
+                  '(use Latitude = -11.08, and Altitude = 407.5)')),
+      
       # Input: Excel file, latitude and longitude ----
       tags$br(),
       
@@ -95,11 +107,7 @@ ui <- fluidPage(
       tags$br(),
       
       fileInput("file1", "Choose Excel file (.xlsx)",
-                accept = c(".xlsx")),
-      
-      tags$div(h6('Having trouble? Try the ', 
-                  tags$a(href='https://github.com/danielalthoff/danielalthoff.github.io/raw/master/samples/Sample.xlsx', "Sample.xlsx"), 
-                  "template"))
+                accept = c(".xlsx"))
       
     )
     ),
@@ -109,7 +117,7 @@ ui <- fluidPage(
       wellPanel(
         div(style='height: 36px',
             radioButtons("radio", "Choose output",
-                     choices = list("Summarize data" = 'sum', "Compare ETo methods" = 'eto'), 
+                     choices = list("Data summary" = 'sum', "Compare ETo methods" = 'eto'), 
                      inline = T,
                      selected = 'sum'),
             uiOutput('download'))),
@@ -146,13 +154,13 @@ server <- function(input, output) {
     req(input$file1, file.exists(input$file1$datapath))
     data = readxl::read_xlsx(input$file1$datapath) %>% gather(Var, Valor, -Date)
     data$Var <- factor(data$Var, 
-                       levels = c('Tx', 'Tm', 'Tn', 'SR', 'RH', 'u2'),
+                       levels = c('Tmax', 'Tmean', 'Tmin', 'SR', 'RH', 'u10'),
                        labels=c(expression(paste("Max. air temperature ("^o,"C)")),
                                 expression(paste("Mean air temperature ("^o,"C)")),
                                 expression(paste("Min. air temperature ("^o,"C)")),
                                 expression(paste('Solar radiation (MJ m'^-2,' day'^-1,')')),
                                 expression(paste('Relative humidity (%)')),
-                                expression(paste('Wind speed (m s'^-1,')'))))
+                                expression(paste('Wind speed at 10 m (m s'^-1,')'))))
     data['Meses'] <- factor(month(data$Date),
                             levels = 1:12,
                             labels = c('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
@@ -162,18 +170,21 @@ server <- function(input, output) {
   vars_ETo <- reactive({
     req(input$file1, file.exists(input$file1$datapath))
     data = readxl::read_xlsx(input$file1$datapath)
-    ETo <- ETo_diario_calc(tmed = data$Tm, tmax = data$Tx, 
-                           tmin = data$Tn, urmed = data$RH, 
-                           rad = data$SR, vmed = data$u2, 
+    ETo <- ETo_diario_calc(tmed = data$Tmean, tmax = data$Tmax, 
+                           tmin = data$Tmin, urmed = data$RH, 
+                           rad = data$SR, vmed = data$u10, 
                            lat = input$lat, alt = input$alt, date = data$Date)
     return(ETo)
   })
   
   mae_rmse <- reactive({
     dados <- vars_ETo() %>% gather(Metodo,Valor,-Date, -ETo)
+    MBE_txt <- by(dados[,c(1,4)], dados$Metodo, MBE_text)
     MAE_txt <- by(dados[,c(1,4)], dados$Metodo, MAE_text)
     RMSE_txt <- by(dados[,c(1,4)], dados$Metodo, RMSE_text)
-    df <- data.frame(MAE_txt = unclass(MAE_txt), RMSE_txt=unclass(RMSE_txt), Metodo=names(MAE_txt))
+    df <- data.frame(MBE_txt = unclass(MBE_txt), 
+                     MAE_txt = unclass(MAE_txt), 
+                     RMSE_txt=unclass(RMSE_txt), Metodo=names(MAE_txt))
     return(df)
   })
   
@@ -239,6 +250,8 @@ server <- function(input, output) {
                       eq.with.lhs = "italic(hat(y))~`=`~", parse = TRUE, label.y = 0.85, size=3) +
          labs(x = expression(paste('ETo'[Penman-Monteith],' (mm day'^-1,')')), y = expression(paste('ETo'[Others],' (mm day '^-1,')'))) +
          facet_wrap(~Metodo, nrow=1) + xlim(0,10) + ylim(0,10) + 
+         geom_text(data = mae_rmse(), mapping = aes(x = +Inf-.1, y = 3.5, group=NULL,
+                                                    label = MBE_txt, family='serif'), size=3, parse=T, hjust=1) +
          geom_text(data = mae_rmse(), mapping = aes(x = +Inf-.1, y = 2, group=NULL,
                                                     label = MAE_txt, family='serif'), size=3, parse=T, hjust=1) +
          geom_text(data = mae_rmse(), mapping = aes(x = +Inf-.1, y = 0.5, group=NULL,
