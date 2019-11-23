@@ -16,10 +16,11 @@ Easy Reference Evapotranspiration (Easy-ETo) is a ShinyApp used to compute refer
 
 # How to use
 
-<h4>1. With ShinyApp</h4>
+<h4>Open the <b>Easy-ETo</b> app</h4>
+<h5>With ShinyApp</h5>
 <p>Access the <a href="https://daniel-althoff.shinyapps.io/easy-eto/" target="blank">Easy-ETo</a> app directly in shinyapps.io.</p>
 
-<h4>2. With R</h4>
+<h5>With R</h5>
 <p>Install the required packages and run the <b>Easy-ETo</b> app</p>
 
 ```{r setup}
