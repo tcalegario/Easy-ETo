@@ -68,15 +68,20 @@ runGitHub("Easy-ETo", "danielalthoff")
 <p>Wait for your file to upload and choose one of the two visualization options:</p>
 <ul>
     <li><b>Data summary</b>: provides boxplots for each meteorological variable and for the different reference evapotranspiration methods</li>
-    <img src="./misc/app_3.png"
+</ul>
+
+<img src="./misc/app_3.png"
      style="float: left; margin-right: 10px;" />
+<ul>
     <li><b>Compare ETo methods</b>: provides the reference evapotranspiration methods <em>Time-series</em> and <em>scatterplots</em> with the following metrics:
         * MBE = mean bias error (mm/day) - average error from PT and HS methods minus PM;
         * MAE = mean absolute error (mm/day);
         * RMSE = root mean square error (mm/day);
         * OLS = ordinary least squares regression;
         * FTO = fitted to the origin regression;</li>
-    <img src="./misc/app_4.png"
+</ul>
+
+<img src="./misc/app_4.png"
      style="float: left; margin-right: 10px;" />
 
 <h4>5. Download the Excel file with ETo data</h4>
