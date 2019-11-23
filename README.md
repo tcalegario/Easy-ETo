@@ -6,7 +6,14 @@
 
 # About
 
-Easy Reference Evapotranspiration (Easy-ETo) is a ShinyApp used to compute reference evapotranspiration. This tutorial is on how to use the Easy-ETo app online or with R.
+Easy Reference Evapotranspiration (Easy-ETo) is a ShinyApp used to compute reference evapotranspiration (ETo). 
+ETo is computed according to three methods:
+    * PM = Penman-Monteith (Allen et al. 1998);
+    * HS = Hargreaves-Samani (Hargreaves and Samani, 1982); and,
+    * PT = Priestley-Taylor (Priestley and Taylor, 1972).
+PM-ETo is used as reference to compare to HS-ETo and PT-ETo.
+
+This tutorial is on how to run the Easy-ETo app online or with R.
 
 # Release History
 
@@ -33,9 +40,9 @@ runGitHub("Easy-ETo", "danielalthoff")
 <img src="./misc/app_1.png"
      style="float: left; margin-right: 10px;" />
     
-<h4>2. Provide the location <b>latitude</b> and <b>altitude</b></h4>
+<h4>2. Provide the weather station <b>latitude</b> and <b>altitude</b></h4>
 <p> Latitude should be in decimal (-90 to 90) and altitude in meters (> 0).<br>
-    For this tutorial, we used the sample data available as <a href="https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx" target="blank">template</a>. This dataset was retrieved from the Brazilian National Institute of Meteorology (<a href='http://www.inmet.gov.br/portal/' target='blank'>INMET</a>) database (<a href="http://www.inmet.gov.br/portal/index.php?r=estacoes/estacoesConvencionais" target='blank'>BA - BARRA: WMO id. 83179)</a>) and went through minimal pre-processing.<br><br>
+    For this tutorial, we used the sample data available as <a href="https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx" target="blank">template</a>. This dataset was retrieved from the Brazilian National Institute of Meteorology (<a href='http://www.inmet.gov.br/portal/' target='blank'>INMET</a>) database (<a href="http://www.inmet.gov.br/portal/index.php?r=estacoes/estacoesConvencionais" target='blank'>BA - BARRA</a>) and went through minimal pre-processing.<br><br>
     The station's corresponding latitude and altitude are -11.08° and 407.5 meters, respectively</p> 
 
 <h4>3. Prepare your Excel (.xlsx) file</h4>
@@ -66,9 +73,16 @@ runGitHub("Easy-ETo", "danielalthoff")
         - OLS = ordinary least squares regression;
         - FTO = fitted to the origin regression;</li>
 
-
+<g4>5. Download the Excel file with ETo data.
 
 < apph4>Enjoy!</h4>
 :smile:
 
+# References
+
+* Allen RG, Pereira LS, Raes D, Smith M (1998) Crop evapotranspiration - Guidelines for computing crop water requirements - FAO Irrigation and drainage paper 56, 9th edn. Food and Agriculture Organization of the United Nations, Rome.
+
+* Hargreaves GH, Samani ZA (1982) Estimating potential evapotranspiration. Journal of the Irrigation and Drainage Division 108:225–230
+
+* Priestley CHB, Taylor RJ (1972) On the assessment of surface heat flux and evaporation using large-scale parameters. Monthly weather review 100:81–92
 
