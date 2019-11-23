@@ -35,11 +35,11 @@ runGitHub("Easy-ETo", "danielalthoff")
     
 <h4>2. Provide the location <b>latitude</b> and <b>altitude</b></h4>
 <p> Latitude should be in decimal (-90 to 90) and altitude in meters (> 0).<br>
-    For this tutorial, we used the sample data available as <a href="https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx" target="blank">template</a>. This dataset was retrieved from the Brazilian National Institute of Meteorology (INMET)'s database (<a href="http://www.inmet.gov.br/portal/index.php?r=estacoes/estacoesConvencionais" target='blank'>BA - BARRA: WMO id. 83179)</a>) and went through minimal pre-processing.<br>
+    For this tutorial, we used the sample data available as <a href="https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx" target="blank">template</a>. This dataset was retrieved from the Brazilian National Institute of Meteorology (<a href='http://www.inmet.gov.br/portal/' target='blank'>INMET</a>) database (<a href="http://www.inmet.gov.br/portal/index.php?r=estacoes/estacoesConvencionais" target='blank'>BA - BARRA: WMO id. 83179)</a>) and went through minimal pre-processing.<br><br>
     The station's corresponding latitude and altitude are -11.08° and 407.5 meters, respectively</p> 
 
 <h4>3. Prepare your Excel (.xlsx) file</h4>
-<p> Download the <a href="https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx" target="blank">template</a> as a referente<br>
+<p> Download the <a href="https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx" target="blank">template</a> and use it as referente<br>
     Your excel file should look like this:</p>
 
 <img src="./misc/app_2.png"
@@ -55,12 +55,20 @@ runGitHub("Easy-ETo", "danielalthoff")
 </ul>
 
 
+<h4>4. Upload the Excel file to the <b>Easy-ETo</b> app</h4>
+<p>There are two visualization options:</p>
+<ul>
+    <li><b>Data summary</b>: provides boxplots for each meteorological variable and for the different reference evapotranspiration methods</li>
+    <li><b>Compare ETo methods</b>: provides the reference evapotranspiration methods <em>Time-series</em> and <em>scatterplots</em> with the following metrics:
+        - MBE = mean bias error (mm/day) - average error from PT and HS methods minus PM;
+        - MAE = mean absolute error (mm/day);
+        - RMSE = root mean square error (mm/day);
+        - OLS = ordinary least squares regression;
+        - FTO = fitted to the origin regression;</li>
 
-<h4>3. Upload a new table asset</h4>
 
 
-
-<h4>Enjoy!</h4>
+< apph4>Enjoy!</h4>
 :smile:
 
 
