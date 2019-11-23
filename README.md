@@ -1,12 +1,12 @@
 <div class="fluid-row" id="header">
-    <img src='./img.png' height='150' width='auto' align='right'>
+    <img src='./misc/img.png' height='150' width='auto' align='right'>
     <h1 class="title toc-ignore">Easy Reference Evapotranspiration</h1>
     <h4 class="author"><em>Daniel Althoff</em></h4>
 </div>
 
 # About
 
-Easy Reference Evapotranspiration (Easy-ETo) is a Shiny App used to compute reference evapotranspiration. This tutorial is on how to use the Easy-ETo App online or with R.
+Easy Reference Evapotranspiration (Easy-ETo) is a ShinyApp used to compute reference evapotranspiration. This tutorial is on how to use the Easy-ETo app online or with R.
 
 # Release History
 
@@ -17,9 +17,9 @@ Easy Reference Evapotranspiration (Easy-ETo) is a Shiny App used to compute refe
 # How to use
 
 <h4>1. With ShinyApp</h4>
-<p>Access the <a href="https://daniel-althoff.shinyapps.io/easy-eto/" target="_blank" rel="noopener noreferrer">Easy-ETo</a> app directly in shinyapps.io.</p>
+<p>Access the <a href="https://daniel-althoff.shinyapps.io/easy-eto/" target="blank">Easy-ETo</a> app directly in shinyapps.io.</p>
 
-<h4>1. With R</h4>
+<h4>2. With R</h4>
 <p>Install the required packages in <b>R</b></p>
 
 ```{r}
@@ -27,8 +27,7 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(shiny, readxl, writexl, dplyr, tidyr,  ggplot2, ggpmisc, lubridate, hydroGOF, update=F)
 ```
 
-<img src="misc/getting-code.png"
-     alt="Markdown Monster icon"
+<img src="./misc/app_1.png"
      style="float: left; margin-right: 10px;" />
 
 <h4>2. Create a MAPBIOMAS folder</h4>
