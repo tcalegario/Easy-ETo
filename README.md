@@ -48,7 +48,7 @@ runGitHub("Easy-ETo", "danielalthoff")
     The station's corresponding latitude and altitude are -11.08° and 407.5 meters, respectively</p> 
 
 <h4>3. Prepare your Excel (.xlsx) file</h4>
-<p> Download the <a href="https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx" target="blank">template</a> and use it as referente<br>
+<p> Download the <a href="https://github.com/danielalthoff/Easy-ETo/raw/master/Sample.xlsx" target="blank">template</a> and use it as reference<br>
     Your excel file should look like this:</p>
 
 <img src="./misc/app_2.png"
