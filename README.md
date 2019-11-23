@@ -6,8 +6,8 @@
 
 # About
 
-Easy Reference Evapotranspiration (Easy-ETo) is a ShinyApp used to compute reference evapotranspiration (ETo). 
-ETo is computed according to three methods:
+Easy Reference Evapotranspiration (Easy-ETo) is a ShinyApp used to compute reference evapotranspiration (ETo).<br> 
+ETo is computed according to three methods:<br>
     * PM = Penman-Monteith (Allen et al. 1998);
     * HS = Hargreaves-Samani (Hargreaves and Samani, 1982); and,
     * PT = Priestley-Taylor (Priestley and Taylor, 1972).
