@@ -20,7 +20,7 @@ This tutorial is on how to run the Easy-ETo app online or with R.
 # Release History
 
 * <b>1.0.0</b> (23-11-2019)
-    * Upload climatic data to Easy-ETo and download reference evapotranspiration data
+    * Upload climatic data to Easy-ETo and compute reference evapotranspiration
     * Two options of data visualization
 
 # How to use
