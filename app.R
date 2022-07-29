@@ -281,7 +281,7 @@ server <- function(input, output) {
   
   output$downloadETo <- downloadHandler(
     filename = function() {paste("ETo", ".xlsx", sep='')},
-    content = function(file) {write_xlsx(vars_ETo() %>% select(Date, ETo, HS, PT),
+    content = function(file) {write_xlsx(vars_ETo() %>% dplyr::select(Date, ETo, HS, PT),
                           file)}
   )
   
