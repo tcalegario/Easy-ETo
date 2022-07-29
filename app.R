@@ -211,7 +211,7 @@ server <- function(input, output) {
       g1 <- ggplot(vars_Clima())+
         geom_boxplot(aes(x=Meses, y=Valor)) +
         facet_wrap(~Var, nrow=2, scales = 'free_y', labeller = label_parsed) +
-        stat_summary(aes(x=Meses, y=Valor), fun.y=mean, colour="red", geom="point", shape=17, show.legend = T) +
+        stat_summary(aes(x=Meses, y=Valor), fun=mean, colour="red", geom="point", shape=17, show.legend = T) +
         labs(x='', y='Values') +
         theme(text = element_text('serif'), axis.text.x = element_text(angle=45),
               panel.border = element_rect(color='black', fill='transparent'), 
