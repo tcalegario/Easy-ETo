@@ -211,7 +211,7 @@ server <- function(input, output) {
       g1 <- ggplot(vars_Clima())+
         geom_boxplot(aes(x=Meses, y=Valor)) +
         facet_wrap(~Var, nrow=2, scales = 'free_y', labeller = label_parsed) +
-        stat_summary(aes(x=Meses, y=Valor), fun.y=mean, colour="red", geom="point", shape=17, show.legend = T) +
+        stat_summary(aes(x=Meses, y=Valor), fun=mean, colour="red", geom="point", shape=17, show.legend = T) +
         labs(x='', y='Values') +
         theme(text = element_text('serif'), axis.text.x = element_text(angle=45),
               panel.border = element_rect(color='black', fill='transparent'), 
@@ -263,7 +263,7 @@ server <- function(input, output) {
         geom_boxplot(aes(x=Meses, y=Valor, fill=Var)) +
         labs(x='', y=expression(paste('ETo (mm day'^-1,')'))) +
         # facet_wrap(~Var, nrow=1, scales = 'free_y', labeller = label_parsed) +
-        stat_summary(aes(x=Meses, y=Valor, group=Var), fun.y=mean, 
+        stat_summary(aes(x=Meses, y=Valor, group=Var), fun=mean, 
                      colour="red", geom="point", shape=17, position = position_dodge(.75)) +
         expand_limits(y=0) +
         theme(text = element_text('serif'), axis.text.x = element_text(angle=45),
@@ -281,7 +281,8 @@ server <- function(input, output) {
   
   output$downloadETo <- downloadHandler(
     filename = function() {paste("ETo", ".xlsx", sep='')},
-    content = function(file) {write_xlsx(vars_ETo() %>% select(Date, ETo, HS, PT) %>% rename(PenmanMonteith = ETo, HargreavesSamani = HS, PriestleyTaylor = PT),
+    content = function(file) {write_xlsx(vars_ETo() %>% dplyr::select(Date, ETo, HS, PT) %>%
+                                         dplyr::rename(PenmanMonteith = ETo, HargreavesSamani = HS, PriestleyTaylor = PT),
                           file)}
   )
   
