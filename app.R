@@ -36,7 +36,7 @@ ETo_diario_calc <- function(tmed, tmax, tmin, urmed, rad, vmed, lat, alt, date) 
   Rso <- (0.75+(2*10^-5)*alt)*Rg
   Rnl <- 4.903*10^(-9)*(((tmax+273.15)^4+(tmin+273.15)^4)/2)*(0.34-0.14*sqrt(ea))*(1.35*rad/Rso-0.35)
   Rn <- Rns-Rnl
-  u2 <- (vmed*4.87/(log(67.8*10-5.42))) %>% tbl_df()
+  u2 <- (vmed*4.87/(log(67.8*10-5.42))) %>% tibble::as_tibble()
   ETo <- (0.408*delta*Rn+psi*(900/(tmed+273))*u2*(es-ea))/(delta+psi*(1+0.34*u2))
   names(ETo) <- 'ETo'
   ETo <- ETo %>% mutate(Date = date,
