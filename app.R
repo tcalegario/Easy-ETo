@@ -29,7 +29,7 @@ ETo_diario_calc <- function(tmed, tmax, tmin, urmed, rad, vmed, lat, alt, date) 
     if (ea[i,] > es[i,]) (ea[i,] <- es[i,])
   }
   
-  delta <- as.data.frame(4098*es/((tmed+237.3)^2)) 
+  delta <- as.data.frame(4098*(0.6108*exp(17.27*tmed/(tmed+273.3)))/((tmed+237.3)^2)) 
   psi <- 0.665*10^(-3)*P
   albedo <- 0.23
   Rns <- as.data.frame((1-albedo)*rad)
